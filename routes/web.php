@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PostController@index');
-Route::get('/create', 'PostController@create');
-Route::post('/store', 'PostController@store');
-Route::get('/show/{post}', 'PostController@show');
-Route::get('/edit/{post}', 'PostController@edit');
-Route::put('/update/{post}', 'PostController@update');
-Route::delete('/destroy/{post}', 'PostController@destroy');
+Route::get('/', 'LoginController@index');
+Route::post('/postlogin', 'LoginController@postLogin');
+Route::get('/logout', 'LoginController@logout');
+
+Route::get('/posts', 'PostController@index');
+Route::get('/posts/create', 'PostController@create');
+Route::post('/posts/store', 'PostController@store');
+Route::get('/posts/show/{post}', 'PostController@show');
+Route::get('/posts/edit/{post}', 'PostController@edit');
+Route::put('/posts/update/{post}', 'PostController@update');
+Route::delete('/posts/destroy/{post}', 'PostController@destroy');

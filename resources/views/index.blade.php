@@ -8,7 +8,8 @@
             </div>
         @endif
 
-        <a href="/create" class="btn btn-primary">Insert New Post</a>
+        <a href="/posts/create" class="btn btn-primary">Insert New Post</a>
+        <a href="/logout" class="btn btn-warning">Logout</a>
 
         <table class="table table-bordered table-hover table-striped my-3">
             <thead>
@@ -25,9 +26,9 @@
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>
-                        <a href="/edit/{{ $p->id }}" class="badge text-bg-success text-decoration-none">Edit</a>
-                        <a href="/show/{{ $p->id }}" class="badge text-bg-primary text-decoration-none">Detail</a>
-                        <form action="/destroy/{{ $p->id }}" method="post" class="d-inline">
+                        <a href="/posts/edit/{{ $p->id }}" class="badge text-bg-success text-decoration-none">Edit</a>
+                        <a href="/posts/show/{{ $p->id }}" class="badge text-bg-primary text-decoration-none">Detail</a>
+                        <form action="/posts/destroy/{{ $p->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                             <button type="submit" class="badge text-bg-danger text-decoration-none">Delete</button>

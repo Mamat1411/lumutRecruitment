@@ -39,7 +39,7 @@ class PostController extends Controller
         ]);
 
         Post::create($request->all());
-        return redirect('/')->with('status', 'New Post Added');
+        return redirect('/posts')->with('status', 'New Post Added');
     }
 
     /**
@@ -79,7 +79,7 @@ class PostController extends Controller
             'content' => $request->content
         ]);
 
-        return redirect('/')->with('status', 'The Post Succesfully Edited');
+        return redirect('/posts')->with('status', 'The Post Succesfully Edited');
     }
 
     /**
@@ -88,6 +88,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         Post::destroy($post->id);
-        return redirect('/')->with('status', 'The Post Successfully Deleted');
+        return redirect('/posts')->with('status', 'The Post Successfully Deleted');
     }
 }

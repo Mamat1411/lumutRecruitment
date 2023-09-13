@@ -4,7 +4,7 @@
         <h1 class="my-3">Add a Post</h1>
 
         <div class="container">
-            <form action="/store" method="post">
+            <form action="/posts/store" method="post">
                 <input type="hidden" name="user_id" value="2">
                 @csrf
                 <table class="table table-borderless">
@@ -29,7 +29,7 @@
                 </table>
                 <button type="submit" class="btn btn-success">Save</button>
                 <button type="reset" class="btn btn-primary">Reset</button>
-                <a href="/" class="btn btn-dark">Back</a>
+                <a href="/posts" class="btn btn-dark">Back</a>
             </form>
         </div>
     </div>

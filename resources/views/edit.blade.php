@@ -4,7 +4,7 @@
         <h1 class="my-3">Edit a Post</h1>
 
         <div class="container">
-            <form action="/update/{{ $post->id }}" method="post">
+            <form action="/posts/update/{{ $post->id }}" method="post">
                 @method('put')
                 @csrf
                 <table class="table table-borderless">
@@ -29,7 +29,7 @@
                 </table>
                 <button type="submit" class="btn btn-success">Save</button>
                 <button type="reset" class="btn btn-primary">Reset</button>
-                <a href="/" class="btn btn-dark">Back</a>
+                <a href="/posts" class="btn btn-dark">Back</a>
             </form>
         </div>
     </div>
