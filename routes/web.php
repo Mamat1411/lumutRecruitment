@@ -13,14 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'LoginController@index');
+Route::get('/', 'LoginController@index')->name('login');
 Route::post('/postlogin', 'LoginController@postLogin');
 Route::get('/logout', 'LoginController@logout');
 
-Route::get('/posts', 'PostController@index');
-Route::get('/posts/create', 'PostController@create');
-Route::post('/posts/store', 'PostController@store');
-Route::get('/posts/show/{post}', 'PostController@show');
-Route::get('/posts/edit/{post}', 'PostController@edit');
-Route::put('/posts/update/{post}', 'PostController@update');
-Route::delete('/posts/destroy/{post}', 'PostController@destroy');
+Route::group(['middleware'=> ['auth']], function () : void {
+    Route::get('/posts', 'PostController@index');
+    Route::get('/posts/create', 'PostController@create');
+    Route::post('/posts/store', 'PostController@store');
+    Route::get('/posts/show/{post}', 'PostController@show');
+    Route::get('/posts/edit/{post}', 'PostController@edit');
+    Route::put('/posts/update/{post}', 'PostController@update');
+    Route::delete('/posts/destroy/{post}', 'PostController@destroy');
+});
