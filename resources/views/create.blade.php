@@ -5,7 +5,7 @@
 
         <div class="container">
             <form action="/posts/store" method="post">
-                <input type="hidden" name="user_id" value="2">
+                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                 @csrf
                 <table class="table table-borderless">
                     <tbody>
