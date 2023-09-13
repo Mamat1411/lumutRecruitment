@@ -19,9 +19,7 @@ class PostFactory extends Factory
         return [
             'title' => fake()->sentence(mt_rand(2,8), false),
             'user_id' => 2,
-            'content' => collect(fake()->paragraphs(mt_rand(3,8)))
-                        ->map(fn($p) => "<p>$p</p>")
-                        ->implode('')
+            'content' => fake()->paragraph(3)
         ];
     }
 }

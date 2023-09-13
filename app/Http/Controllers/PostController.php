@@ -12,7 +12,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return view('index',[
+            "title" => "Index",
+            "posts" => Post::latest()->paginate(5)
+        ]);
     }
 
     /**
