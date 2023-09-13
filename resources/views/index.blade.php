@@ -23,7 +23,7 @@
             <tbody>
                 @foreach ($posts as $p)
                     <tr>
-                        <th scope="row">{{ $p->id }}</th>
+                        <th scope="row">{{ $loop->iteration }}</th>
                         <td>
                         <a href="/edit/{{ $p->id }}" class="badge text-bg-success text-decoration-none">Edit</a>
                         <a href="/show/{{ $p->id }}" class="badge text-bg-primary text-decoration-none">Detail</a>

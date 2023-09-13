@@ -23,7 +23,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('create', [
+            'title' => 'Add a Post'
+        ]);
     }
 
     /**
@@ -31,7 +33,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request -> validate([
+            'title' => 'required',
+            'content' => 'required'
+        ]);
+
+        Post::create($request->all());
+        return redirect('/')->with('status', 'New Post Added');
     }
 
     /**
