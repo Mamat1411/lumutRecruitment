@@ -47,7 +47,10 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('show', [
+            "title" => Post::where('title', $post->title)->get(),
+            'post' => $post
+        ]);
     }
 
     /**
