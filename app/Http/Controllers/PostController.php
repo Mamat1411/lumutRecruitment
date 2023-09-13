@@ -58,7 +58,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('edit', [
+            "title" => "Edit A Post",
+            "post" => $post
+        ]);
     }
 
     /**
@@ -66,7 +69,17 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $request -> validate([
+            'title' => 'required',
+            'content' => 'required'
+        ]);
+
+        Post::where('id', $post->id)->update([
+            'title' => $request->title,
+            'content' => $request->content
+        ]);
+
+        return redirect('/')->with('status', 'The Post Succesfully Edited');
     }
 
     /**
